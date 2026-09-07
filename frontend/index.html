@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Today's To-Do List</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="page">
+    <header class="hero">
+      <h1 class="hero-title">TODAY'S..<br>TO&nbsp;&minus;DO&nbsp;LIST</h1>
+      <div class="hero-rule"></div>
+    </header>
+
+    <section class="list-panel" aria-label="Task list">
+
+      <form id="add-form" class="add-row">
+        <input
+          id="add-input"
+          type="text"
+          placeholder="Add a new task..."
+          autocomplete="off"
+          required
+        >
+        <button type="submit">Add</button>
+      </form>
+
+      <p id="error-msg" class="error-msg" hidden></p>
+
+      <ul id="task-list" class="task-list"></ul>
+
+      <p id="empty-msg" class="empty-msg" hidden>Nothing here yet — add your first task above.</p>
+    </section>
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>

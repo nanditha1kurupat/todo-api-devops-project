@@ -1,19 +1,20 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_from_directory
 
-app = Flask(__name__)
+
+app = Flask(__name__, static_folder='frontend', static_url_path='')
+@app.route('/')
+def serve_frontend():
+    return send_from_directory('frontend', 'index.html')
 tasks = []
 
-@app.route('/')
-def home():
-    return 'To-Do List API is running!'
+@app.route('/tasks', methods=['GET'])
+def get_tasks():
+    return jsonify(tasks)
 
 @app.route('/health')
 def health():
     return jsonify(status='healthy'), 200
 
-@app.route('/tasks', methods=['GET'])
-def get_tasks():
-    return jsonify(tasks)
 
 @app.route('/tasks', methods=['POST'])
 def add_task():
